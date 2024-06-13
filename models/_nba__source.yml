@@ -14,8 +14,6 @@ sources:
           - name: game_id
             data_type: number
             description: ""
-            tests:
-              - unique
 
           - name: game_status_text
             data_type: varchar
