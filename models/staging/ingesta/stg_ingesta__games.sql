@@ -1,22 +1,8 @@
 with 
 
-source as (
+base as (
 
-    select * from {{ source('ingesta', 'games') }}
-
-),
-
-renamed as (
-
-    SELECT *
-FROM (
-    SELECT 
-           COUNT(*) OVER (PARTITION BY game_id) AS cnt,
-           *
-    FROM source
-) subquery
-WHERE cnt = 1
-    
+    select * from {{ ref('base_ingesta__games') }}
 
 )
 
@@ -41,4 +27,4 @@ select game_date_est,
         ast_away,
         reb_away,
         home_team_wins
- from renamed
+ from base
