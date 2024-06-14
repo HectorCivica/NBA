@@ -46,3 +46,16 @@ models:
       +database: "ALUMNO13_NBA_GOLD"
       core:
         +schema: core
+    
+    marts:
+      +materialized: table
+      +database: "ALUMNO13_NBA_GOLD"
+      core:
+        +schema: core
+        +database: "ALUMNO13_NBA_GOLD"
+      
+    core:
+      +materialized: table
+      +database: "ALUMNO13_NBA_GOLD"
+      core:
+        +schema: core

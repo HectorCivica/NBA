@@ -1,22 +1,19 @@
 {{ config(
-    materialized='view',
+    materialized='table',
     on_schema_change='fail'
     ) 
 }}
 
-with cte_games_details as(
-    select *
-    from {{ ref('stg_ingesta__games_details') }}
-),
+with 
 
-cte_games_season as(
+cte_games_details_season_date as(
     select *
-    from {{ ref('stg_ingesta__games_season') }}
+    from {{ ref('int_ingesta__games_details_season') }}
 )
 
 select  game_date_est,
         season,
-        A.game_id,
+        game_id,
         team_id,
         team_abbreviation,
         team_city,
@@ -45,6 +42,5 @@ select  game_date_est,
         pf,
         pts,
         plus_minus
- from cte_games_details A
- join cte_games_season B on A.game_id=B.game_id
+ from cte_games_details_season_date
  
