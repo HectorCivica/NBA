@@ -40,3 +40,9 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+
+    intermediate:
+      +materialized: view
+      +database: "ALUMNO13_NBA_GOLD"
+      core:
+        +schema: core

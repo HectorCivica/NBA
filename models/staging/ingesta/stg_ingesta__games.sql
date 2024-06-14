@@ -28,3 +28,4 @@ select game_date_est,
         reb_away,
         home_team_wins
  from base
+where season <=2019
