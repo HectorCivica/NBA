@@ -7,5 +7,6 @@ base as (
 )
 
 select  game_id,
-        season
+        season,
+        game_date_est
  from base

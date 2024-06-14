@@ -16,7 +16,7 @@ FROM (
     FROM source
 ) subquery
 WHERE cnt = 1
-    
+-- Esto es para no repetir filas. Se puede utilizar macro
 
 )
 
@@ -42,3 +42,4 @@ select game_date_est,
         round(reb_away) as reb_away,
         home_team_wins
  from renamed
+where season<=2019

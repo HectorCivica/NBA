@@ -2,7 +2,7 @@ with
 
 base as (
 
-    select * from {{ ref('base_ingesta__games') }}
+    select * from {{ ref('stg_ingesta__games') }}
 
 )
 

@@ -1,366 +1,393 @@
-
 version: 2
 
 models:
   - name: stg_ingesta__games
-    description: ""
+    description: "Modelo que almacena información sobre los partidos de la NBA."
     columns:
       - name: game_date_est
         data_type: date
-        description: ""
+        description: "Fecha del partido en hora estándar del este."
 
       - name: game_id
         data_type: number
-        description: ""
+        description: "Identificador único del partido."
         tests:
-          - unique
+          - unique 
 
       - name: game_status_text
         data_type: varchar
-        description: ""
+        description: "Estado del partido."
 
       - name: home_team_id
         data_type: number
-        description: ""
+        description: "Identificador del equipo local."
 
       - name: visitor_team_id
         data_type: number
-        description: ""
+        description: "Identificador del equipo visitante."
 
       - name: season
         data_type: number
-        description: ""
+        description: "Temporada en la que se juega el partido."
 
       - name: team_id_home
         data_type: number
-        description: ""
+        description: "Identificador del equipo local (duplicado)."
 
       - name: pts_home
         data_type: number
-        description: ""
+        description: "Puntos anotados por el equipo local."
 
       - name: fg_pct_home
         data_type: number
-        description: ""
+        description: "Porcentaje de tiros de campo del equipo local."
 
       - name: ft_pct_home
         data_type: number
-        description: ""
+        description: "Porcentaje de tiros libres del equipo local."
 
       - name: fg3_pct_home
         data_type: number
-        description: ""
+        description: "Porcentaje de triples del equipo local."
 
       - name: ast_home
         data_type: number
-        description: ""
+        description: "Número de asistencias del equipo local."
 
       - name: reb_home
         data_type: number
-        description: ""
+        description: "Número de rebotes del equipo local."
 
       - name: team_id_away
         data_type: number
-        description: ""
+        description: "Identificador del equipo visitante."
 
       - name: pts_away
         data_type: number
-        description: ""
+        description: "Puntos anotados por el equipo visitante."
 
       - name: fg_pct_away
         data_type: number
-        description: ""
+        description: "Porcentaje de tiros de campo del equipo visitante."
 
       - name: ft_pct_away
         data_type: number
-        description: ""
+        description: "Porcentaje de tiros libres del equipo visitante."
 
       - name: fg3_pct_away
         data_type: number
-        description: ""
+        description: "Porcentaje de triples del equipo visitante."
 
       - name: ast_away
         data_type: number
-        description: ""
+        description: "Número de asistencias del equipo visitante."
 
       - name: reb_away
         data_type: number
-        description: ""
+        description: "Número de rebotes del equipo visitante."
 
+      - name: home_team_wins
+        data_type: number
+        description: "Indica si el equipo local ganó el partido."
+
+#  - name: stg_ingesta_dim_season
+#    description: "Modelo que almacena información sobre las temporadas de la NBA."
+#    columns:
+#      - name: season
+#        data_type: number
+#        description: "Número de la temporada."
+#
+#      - name: season_id
+#        data_type: varchar
+#        description: "Identificador de la temporada."
+
+  - name: stg_ingesta__games_details
+    description: "Modelo que almacena detalles de cada partido."
+    columns:
+      - name: game_id
+        data_type: number
+        description: "Identificador único del partido."
+
+      - name: team_id
+        data_type: number
+        description: "Identificador del equipo."
+
+      - name: team_abbreviation
+        data_type: varchar
+        description: "Abreviatura del equipo."
+
+      - name: team_city
+        data_type: varchar
+        description: "Ciudad del equipo."
+
+      - name: player_id
+        data_type: number
+        description: "Identificador único del jugador."
+
+      - name: player_name
+        data_type: varchar
+        description: "Nombre del jugador."
+
+      - name: nickname
+        data_type: varchar
+        description: "Apodo del jugador."
+
+      - name: start_position
+        data_type: varchar
+        description: "Posición inicial del jugador."
+
+      - name: comment
+        data_type: varchar
+        description: "Comentario sobre el rendimiento del jugador."
+
+      - name: min
+        data_type: varchar
+        description: "Minutos jugados por el jugador."
+
+      - name: fgm
+        data_type: number
+        description: "Tiros de campo anotados por el jugador."
+
+      - name: fga
+        data_type: number
+        description: "Tiros de campo intentados por el jugador."
+
+      - name: fg_pct
+        data_type: number
+        description: "Porcentaje de tiros de campo del jugador."
+
+      - name: fg3m
+        data_type: number
+        description: "Triples anotados por el jugador."
+
+      - name: fg3a
+        data_type: number
+        description: "Triples intentados por el jugador."
+
+      - name: fg3_pct
+        data_type: number
+        description: "Porcentaje de triples del jugador."
+
+      - name: ftm
+        data_type: number
+        description: "Tiros libres anotados por el jugador."
+
+      - name: fta
+        data_type: number
+        description: "Tiros libres intentados por el jugador."
+
+      - name: ft_pct
+        data_type: number
+        description: "Porcentaje de tiros libres del jugador."
+
+      - name: oreb
+        data_type: number
+        description: "Rebotes ofensivos del jugador."
+
+      - name: dreb
+        data_type: number
+        description: "Rebotes defensivos del jugador."
+
+      - name: reb
+        data_type: number
+        description: "Rebotes totales del jugador."
+
+      - name: ast
+        data_type: number
+        description: "Asistencias del jugador."
+
+      - name: stl
+        data_type: number
+        description: "Robos del jugador."
+
+      - name: blk
+        data_type: number
+        description: "Bloqueos del jugador."
+
+      - name: to_
+        data_type: number
+        description: "Pérdidas de balón del jugador."
+
+      - name: pf
+        data_type: number
+        description: "Faltas personales del jugador."
+
+      - name: pts
+        data_type: number
+        description: "Puntos anotados por el jugador."
+
+      - name: plus_minus
+        data_type: number
+        description: "Estadística +/- del jugador."
+
+  - name: stg_ingesta__players
+    description: "Modelo que almacena información sobre los jugadores de la NBA."
+    columns:
+      - name: player_name
+        data_type: varchar
+        description: "Nombre del jugador."
+
+      - name: team_id
+        data_type: number
+        description: "Identificador del equipo del jugador."
+
+      - name: player_id
+        data_type: number
+        description: "Identificador único del jugador."
+
+      - name: season
+        data_type: number
+        description: "Temporada en la que juega el jugador."
+
+  - name: stg_ingesta__ranking
+    description: "Modelo que almacena información sobre el ranking de equipos."
+    columns:
+      - name: team_id
+        data_type: number
+        description: "Identificador del equipo."
+
+      - name: league_id
+        data_type: number
+        description: "Identificador de la liga."
+
+      - name: season_id
+        data_type: number
+        description: "Identificador de la temporada."
+
+      - name: standingsdate
+        data_type: date
+        description: "Fecha del ranking."
+
+      - name: conference
+        data_type: varchar
+        description: "Conferencia a la que pertenece el equipo."
+
+      - name: team
+        data_type: varchar
+        description: "Nombre del equipo."
+
+      - name: g
+        data_type: number
+        description: "Número de juegos jugados."
+
+      - name: w
+        data_type: number
+        description: "Número de juegos ganados."
+
+      - name: l
+        data_type: number
+        description: "Número de juegos perdidos."
+
+      - name: w_pct
+        data_type: number
+        description: "Porcentaje de juegos ganados."
+
+      - name: home_record
+        data_type: varchar
+        description: "Récord de juegos en casa."
+
+      - name: road_record
+        data_type: varchar
+        description: "Récord de juegos fuera de casa."
+
+      - name: returntoplay
+        data_type: varchar
+        description: "Información sobre el regreso al juego."
+
+  - name: stg_ingesta__teams
+    description: "Modelo que almacena información sobre los equipos de la NBA."
+    columns:
+      - name: league_id
+        data_type: number
+        description: "Identificador de la liga."
+
+      - name: team_id
+        data_type: number
+        description: "Identificador del equipo."
+
+      - name: min_year
+        data_type: number
+        description: "Año mínimo de participación del equipo."
+
+      - name: max_year
+        data_type: number
+        description: "Año máximo de participación del equipo."
+
+      - name: abbreviation
+        data_type: varchar
+        description: "Abreviatura del equipo."
+
+      - name: nickname
+        data_type: varchar
+        description: "Apodo del equipo."
+
+      - name: yearfounded
+        data_type: number
+        description: "Año de fundación del equipo."
+
+      - name: city
+        data_type: varchar
+        description: "Ciudad del equipo."
+
+      - name: arena
+        data_type: varchar
+        description: "Nombre del estadio del equipo."
+
+      - name: arenacapacity
+        data_type: number
+        description: "Capacidad del estadio del equipo."
+
+      - name: owner
+        data_type: varchar
+        description: "Propietario del equipo."
+
+      - name: generalmanager
+        data_type: varchar
+        description: "Gerente general del equipo."
+
+      - name: headcoach
+        data_type: varchar
+        description: "Entrenador principal del equipo."
+
+      - name: dleagueaffiliation
+        data_type: varchar
+        description: "Afiliación a la liga de desarrollo."
+
+#  - name: stg_ingesta_dim_league
+#    description: "Modelo que almacena información sobre las ligas de la NBA."
+#    columns:
+#      - name: league_id
+#        data_type: number
+ #       description: "Identificador de la liga."
+#
+ #     - name: league_name
+  #      data_type: varchar
+   #     description: "Nombre de la liga."
+
+
+
+  - name: stg_ingesta_dim_win
+    description: ""
+    columns:
       - name: home_team_wins
         data_type: number
         description: ""
 
-  - name: stg_ingesta_dim_season
-    description: ""
-    columns:
-      - name: season
-        data_type: number
-        description: ""
-
-      - name: season_id
+      - name: who_wins
         data_type: varchar
         description: ""
 
-  - name: stg_ingesta__games_details
-    description: ""
+  - name: stg_ingesta__games_season
+    description: "Modelo que contiene la información de los partidos por temporada en la NBA."
     columns:
       - name: game_id
         data_type: number
-        description: ""
-
-      - name: team_id
-        data_type: number
-        description: ""
-
-      - name: team_abbreviation
-        data_type: varchar
-        description: ""
-
-      - name: team_city
-        data_type: varchar
-        description: ""
-
-      - name: player_id
-        data_type: number
-        description: ""
-
-      - name: player_name
-        data_type: varchar
-        description: ""
-
-      - name: nickname
-        data_type: varchar
-        description: ""
-
-      - name: start_position
-        data_type: varchar
-        description: ""
-
-      - name: comment
-        data_type: varchar
-        description: ""
-
-      - name: min
-        data_type: varchar
-        description: ""
-
-      - name: fgm
-        data_type: number
-        description: ""
-
-      - name: fga
-        data_type: number
-        description: ""
-
-      - name: fg_pct
-        data_type: number
-        description: ""
-
-      - name: fg3m
-        data_type: number
-        description: ""
-
-      - name: fg3a
-        data_type: number
-        description: ""
-
-      - name: fg3_pct
-        data_type: number
-        description: ""
-
-      - name: ftm
-        data_type: number
-        description: ""
-
-      - name: fta
-        data_type: number
-        description: ""
-
-      - name: ft_pct
-        data_type: number
-        description: ""
-
-      - name: oreb
-        data_type: number
-        description: ""
-
-      - name: dreb
-        data_type: number
-        description: ""
-
-      - name: reb
-        data_type: number
-        description: ""
-
-      - name: ast
-        data_type: number
-        description: ""
-
-      - name: stl
-        data_type: number
-        description: ""
-
-      - name: blk
-        data_type: number
-        description: ""
-
-      - name: to_
-        data_type: number
-        description: ""
-
-      - name: pf
-        data_type: number
-        description: ""
-
-      - name: pts
-        data_type: number
-        description: ""
-
-      - name: plus_minus
-        data_type: number
-        description: ""
-
-  - name: stg_ingesta__players
-    description: ""
-    columns:
-      - name: player_name
-        data_type: varchar
-        description: ""
-
-      - name: team_id
-        data_type: number
-        description: ""
-
-      - name: player_id
-        data_type: number
-        description: ""
+        description: "Identificador único del partido."
 
       - name: season
         data_type: number
-        description: ""
+        description: "Temporada en la que se juega el partido."
 
-  - name: stg_ingesta__ranking
-    description: ""
-    columns:
-      - name: team_id
-        data_type: number
-        description: ""
-
-      - name: league_id
-        data_type: number
-        description: ""
-
-      - name: season_id
-        data_type: number
-        description: ""
-
-      - name: standingsdate
+      - name: game_date_est
         data_type: date
-        description: ""
-
-      - name: conference
-        data_type: varchar
-        description: ""
-
-      - name: team
-        data_type: varchar
-        description: ""
-
-      - name: g
-        data_type: number
-        description: ""
-
-      - name: w
-        data_type: number
-        description: ""
-
-      - name: l
-        data_type: number
-        description: ""
-
-      - name: w_pct
-        data_type: number
-        description: ""
-
-      - name: home_record
-        data_type: varchar
-        description: ""
-
-      - name: road_record
-        data_type: varchar
-        description: ""
-
-      - name: returntoplay
-        data_type: varchar
-        description: ""
-
-  - name: stg_ingesta__teams
-    description: ""
-    columns:
-      - name: league_id
-        data_type: number
-        description: ""
-
-      - name: team_id
-        data_type: number
-        description: ""
-
-      - name: min_year
-        data_type: number
-        description: ""
-
-      - name: max_year
-        data_type: number
-        description: ""
-
-      - name: abbreviation
-        data_type: varchar
-        description: ""
-
-      - name: nickname
-        data_type: varchar
-        description: ""
-
-      - name: yearfounded
-        data_type: number
-        description: ""
-
-      - name: city
-        data_type: varchar
-        description: ""
-
-      - name: arena
-        data_type: varchar
-        description: ""
-
-      - name: arenacapacity
-        data_type: number
-        description: ""
-
-      - name: owner
-        data_type: varchar
-        description: ""
-
-      - name: generalmanager
-        data_type: varchar
-        description: ""
-
-      - name: headcoach
-        data_type: varchar
-        description: ""
-
-      - name: dleagueaffiliation
-        data_type: varchar
-        description: ""
-
-  - name: stg_ingesta_dim_league
-    description: ""
-    columns:
-      - name: league_id
-        data_type: number
-        description: ""
-
-      - name: league_name
-        data_type: varchar
-        description: ""
+        description: "Fecha del partido en hora estándar del este."

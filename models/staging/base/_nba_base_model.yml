@@ -1,0 +1,148 @@
+version: 2
+
+models:
+  - name: base_ingesta__teams
+    description: "Modelo que contiene información sobre los equipos de la NBA."
+    columns:
+      - name: league_id
+        data_type: number
+        description: "Identificador único de la liga."
+
+      - name: team_id
+        data_type: number
+        description: "Identificador único del equipo."
+
+      - name: min_year
+        data_type: number
+        description: "Año de inicio de la existencia del equipo."
+
+      - name: max_year
+        data_type: number
+        description: "Año de finalización de la existencia del equipo."
+
+      - name: abbreviation
+        data_type: varchar
+        description: "Abreviatura del nombre del equipo."
+
+      - name: nickname
+        data_type: varchar
+        description: "Apodo del equipo."
+
+      - name: yearfounded
+        data_type: number
+        description: "Año en que se fundó el equipo."
+
+      - name: city
+        data_type: varchar
+        description: "Ciudad del equipo."
+
+      - name: arena
+        data_type: varchar
+        description: "Nombre del estadio del equipo."
+
+      - name: arenacapacity
+        data_type: number
+        description: "Capacidad del estadio del equipo."
+
+      - name: owner
+        data_type: varchar
+        description: "Propietario del equipo."
+
+      - name: generalmanager
+        data_type: varchar
+        description: "Gerente general del equipo."
+
+      - name: headcoach
+        data_type: varchar
+        description: "Entrenador principal del equipo."
+
+      - name: dleagueaffiliation
+        data_type: varchar
+        description: "Afiliación a la liga de desarrollo."
+
+  - name: base_ingesta__games
+    description: "Modelo que contiene información sobre los partidos de la NBA."
+    columns:
+      - name: game_date_est
+        data_type: date
+        description: "Fecha del partido en hora estándar del este."
+
+      - name: game_id
+        data_type: number
+        description: "Identificador único del partido."
+
+      - name: game_status_text
+        data_type: varchar
+        description: "Estado del partido."
+
+      - name: home_team_id
+        data_type: number
+        description: "Identificador del equipo local."
+
+      - name: visitor_team_id
+        data_type: number
+        description: "Identificador del equipo visitante."
+
+      - name: season
+        data_type: number
+        description: "Temporada en la que se juega el partido."
+
+      - name: team_id_home
+        data_type: number
+        description: "Identificador del equipo local (duplicado)."
+
+      - name: pts_home
+        data_type: number
+        description: "Puntos anotados por el equipo local."
+
+      - name: fg_pct_home
+        data_type: number
+        description: "Porcentaje de tiros de campo del equipo local."
+
+      - name: ft_pct_home
+        data_type: number
+        description: "Porcentaje de tiros libres del equipo local."
+
+      - name: fg3_pct_home
+        data_type: number
+        description: "Porcentaje de triples del equipo local."
+
+      - name: ast_home
+        data_type: number
+        description: "Número de asistencias del equipo local."
+
+      - name: reb_home
+        data_type: number
+        description: "Número de rebotes del equipo local."
+
+      - name: team_id_away
+        data_type: number
+        description: "Identificador del equipo visitante."
+
+      - name: pts_away
+        data_type: number
+        description: "Puntos anotados por el equipo visitante."
+
+      - name: fg_pct_away
+        data_type: number
+        description: "Porcentaje de tiros de campo del equipo visitante."
+
+      - name: ft_pct_away
+        data_type: number
+        description: "Porcentaje de tiros libres del equipo visitante."
+
+      - name: fg3_pct_away
+        data_type: number
+        description: "Porcentaje de triples del equipo visitante."
+
+      - name: ast_away
+        data_type: number
+        description: "Número de asistencias del equipo visitante."
+
+      - name: reb_away
+        data_type: number
+        description: "Número de rebotes del equipo visitante."
+
+      - name: home_team_wins
+        data_type: number
+        description: "Indicador de si el equipo local ganó el partido."
