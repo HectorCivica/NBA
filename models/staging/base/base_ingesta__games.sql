@@ -40,6 +40,7 @@ select game_date_est,
         round(fg3_pct_away,3) as fg3_pct_away,
         round(ast_away) as ast_away,
         round(reb_away) as reb_away,
-        home_team_wins
+        home_team_wins,
+        _fivetran_synced
  from renamed
 where season<=2019

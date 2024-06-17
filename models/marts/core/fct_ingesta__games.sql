@@ -1,3 +1,9 @@
+{{ config(
+    materialized='incremental',
+    unique_key='game_id'
+    ) 
+}}
+
 with 
 
 cte_int_games as (
@@ -23,6 +29,11 @@ select game_date_est,
         ft_pct_away,
         fg3_pct_away,
         ast_away,
-        reb_away
+        reb_away,
+        _fivetran_synced
         
  from cte_int_games
+
+ {% if is_incremental() %}
+    where _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }} )
+{% endif %}

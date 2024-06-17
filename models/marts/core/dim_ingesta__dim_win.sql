@@ -1,7 +1,7 @@
 
 with 
 base as (
-select * from {{ ref('stg_ingesta_dim_win') }} 
+select * from {{ ref('stg_ingesta__dim_win') }} 
 )
 
 select 

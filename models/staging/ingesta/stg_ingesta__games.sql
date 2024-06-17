@@ -1,3 +1,12 @@
+{{ config(
+    materialized='incremental',
+    unique_key='game_id'
+) }}
+
+
+
+
+
 with 
 
 base as (
@@ -26,5 +35,10 @@ select game_date_est,
         fg3_pct_away,
         ast_away,
         reb_away,
-        home_team_wins
+        home_team_wins,
+        _fivetran_synced
  from base
+
+{% if is_incremental() %}
+    WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }} )
+{% endif %}

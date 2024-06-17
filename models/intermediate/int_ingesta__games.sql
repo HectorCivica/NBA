@@ -30,7 +30,8 @@ select game_date_est,
         fg3_pct_away,
         ast_away,
         reb_away,
-        home_team_wins
+        home_team_wins,
+        _fivetran_synced
  from cte_int_games A
  join cte_int_games_details B on
  A.game_id=B.game_id

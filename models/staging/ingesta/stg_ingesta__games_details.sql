@@ -1,14 +1,21 @@
+{{ config(
+    materialized='incremental',
+    unique_key='detail_id'
+) }}
+
+
 with 
 
 source as (
 
-    select * from {{ source('ingesta', 'games_details') }}
+    select * from {{ ref("base_ingesta__games_details") }}
 
 ),
 
 renamed as (
 
     select
+        detail_id,
         game_id,
         team_id,
         team_abbreviation,
@@ -18,7 +25,7 @@ renamed as (
         nickname,
         start_position,
         comment,
-        min,
+        mins,
         round(fgm) as fgm,
         round(fga)as fga,
         round(fg_pct,3) as fg_pct,
@@ -37,8 +44,8 @@ renamed as (
         round(to_)as to_,
         round(pf)as pf,
         round(pts)as pts,
-        round(plus_minus)as plus_minus
-
+        round(plus_minus)as plus_minus,
+        _fivetran_synced
     from source
 
 )
@@ -46,7 +53,13 @@ renamed as (
 --select * from renamed
 
 
-select * from 
-(select distinct *, count(*) as cnt from source
-group by all) subquery
-where cnt=1
+--select * from 
+--(select distinct *, count(*) as cnt from source
+--group by all) subquery
+--where cnt=1
+
+select * from source
+
+{% if is_incremental() %}
+    WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }} )
+{% endif %}
