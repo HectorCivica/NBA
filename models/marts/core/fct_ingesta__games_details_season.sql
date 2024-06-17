@@ -1,6 +1,6 @@
 {{ config(
-    materialized='table',
-    on_schema_change='fail'
+    materialized='incremental',
+    unique_key='detail_id'
     ) 
 }}
 
@@ -13,6 +13,7 @@ cte_games_details_season_date as(
 
 select  game_date_est,
         season,
+        detail_id,
         game_id,
         team_id,
         --team_abbreviation,
@@ -22,7 +23,7 @@ select  game_date_est,
         --nickname,
         start_position,
         comment,
-        min,
+        mins,
         fgm,
         fga,
         fg_pct,
@@ -41,6 +42,10 @@ select  game_date_est,
         to_,
         pf,
         pts,
-        plus_minus
+        plus_minus,
+        _fivetran_synced
  from cte_games_details_season_date
  
+ {% if is_incremental() %}
+    WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }} )
+{% endif %}
