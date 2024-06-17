@@ -35,4 +35,4 @@ select game_date_est,
  from cte_int_games A
  join cte_int_games_details B on
  A.game_id=B.game_id
-
+order by A.game_id
