@@ -99,6 +99,12 @@ models:
         data_type: number
         description: "Temporada en la que se juega el partido."
 
+      - name: detail_id
+        data_type: varvhar
+        description: 'Hola'
+        tests:
+          - unique
+
       - name: game_id
         data_type: number
         description: "Identificador único del partido."

@@ -21,7 +21,10 @@ renamed as (
             when start_position is null then 'B'
             else start_position 
         end as start_position,
-        comment,
+        case 
+            when comment is null then 'No comment'
+            else comment
+        end as comment,
         min as mins,
         round(fgm) as fgm,
         round(fga)as fga,

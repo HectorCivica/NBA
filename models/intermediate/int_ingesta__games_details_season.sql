@@ -117,4 +117,4 @@ select  game_date_est,
         _fivetran_synced
  from cte_games_details A
  join cte_games_season B on A.game_id=B.game_id
- 
+ order by A.game_id
