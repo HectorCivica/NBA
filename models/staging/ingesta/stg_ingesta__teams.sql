@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ ref('base_ingesta__teams') }}
+    select * from {{ source('ingesta', 'teams') }}
 
 ),
 

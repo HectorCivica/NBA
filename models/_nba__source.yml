@@ -231,6 +231,8 @@ sources:
           - name: team_id
             data_type: number
             description: "Identificador del equipo."
+            tests:
+              - unique
           - name: min_year
             data_type: number
             description: "Año mínimo de participación del equipo."

@@ -43,4 +43,10 @@ renamed as (
 
 )
 
-select * from renamed
+--select * from renamed
+
+
+select * from 
+(select distinct *, count(*) as cnt from source
+group by all) subquery
+where cnt=1

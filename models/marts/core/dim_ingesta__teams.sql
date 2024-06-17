@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        league_id,
+        --league_id,
         team_id,
         min_year,
         max_year,
