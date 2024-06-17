@@ -1,6 +1,6 @@
 with 
 
-base as (
+cte_int_games as (
 
     select * from {{ ref('int_ingesta__games') }}
 
@@ -25,4 +25,4 @@ select game_date_est,
         ast_away,
         reb_away
         
- from base
+ from cte_int_games

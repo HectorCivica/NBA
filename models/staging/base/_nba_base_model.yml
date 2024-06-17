@@ -1,65 +1,65 @@
 version: 2
 
 models:
-  - name: base_ingesta__teams
-    description: "Modelo que contiene información sobre los equipos de la NBA."
-    columns:
-      - name: league_id
-        data_type: number
-        description: "Identificador único de la liga."
-
-      - name: team_id
-        data_type: number
-        description: "Identificador único del equipo."
-
-      - name: min_year
-        data_type: number
-        description: "Año de inicio de la existencia del equipo."
-
-      - name: max_year
-        data_type: number
-        description: "Año de finalización de la existencia del equipo."
-
-      - name: abbreviation
-        data_type: varchar
-        description: "Abreviatura del nombre del equipo."
-
-      - name: nickname
-        data_type: varchar
-        description: "Apodo del equipo."
-
-      - name: yearfounded
-        data_type: number
-        description: "Año en que se fundó el equipo."
-
-      - name: city
-        data_type: varchar
-        description: "Ciudad del equipo."
-
-      - name: arena
-        data_type: varchar
-        description: "Nombre del estadio del equipo."
-
-      - name: arenacapacity
-        data_type: number
-        description: "Capacidad del estadio del equipo."
-
-      - name: owner
-        data_type: varchar
-        description: "Propietario del equipo."
-
-      - name: generalmanager
-        data_type: varchar
-        description: "Gerente general del equipo."
-
-      - name: headcoach
-        data_type: varchar
-        description: "Entrenador principal del equipo."
-
-      - name: dleagueaffiliation
-        data_type: varchar
-        description: "Afiliación a la liga de desarrollo."
-
+#  - name: base_ingesta__teams
+#    description: "Modelo que contiene información sobre los equipos de la NBA."
+#    columns:
+#      - name: league_id
+#        data_type: number
+#        description: "Identificador único de la liga."
+#
+#      - name: team_id
+#        data_type: number
+#        description: "Identificador único del equipo."
+#
+#      - name: min_year
+#        data_type: number
+#        description: "Año de inicio de la existencia del equipo."
+#
+#      - name: max_year
+#        data_type: number
+#        description: "Año de finalización de la existencia del equipo."
+#
+#      - name: abbreviation
+#        data_type: varchar
+#        description: "Abreviatura del nombre del equipo."
+#
+#      - name: nickname
+#        data_type: varchar
+#        description: "Apodo del equipo."
+#
+#      - name: yearfounded
+#        data_type: number
+#        description: "Año en que se fundó el equipo."
+#
+#      - name: city
+#        data_type: varchar
+#        description: "Ciudad del equipo."
+#
+#      - name: arena
+#        data_type: varchar
+#        description: "Nombre del estadio del equipo."
+#
+#      - name: arenacapacity
+#        data_type: number
+#        description: "Capacidad del estadio del equipo."
+#
+#      - name: owner
+#        data_type: varchar
+#        description: "Propietario del equipo."
+#
+#      - name: generalmanager
+#        data_type: varchar
+#        description: "Gerente general del equipo."
+#
+#      - name: headcoach
+#        data_type: varchar
+#        description: "Entrenador principal del equipo."
+#
+#      - name: dleagueaffiliation
+#        data_type: varchar
+#        description: "Afiliación a la liga de desarrollo."
+#
   - name: base_ingesta__games
     description: "Modelo que contiene información sobre los partidos de la NBA."
     columns:

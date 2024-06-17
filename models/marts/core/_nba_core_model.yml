@@ -20,25 +20,25 @@ models:
         data_type: number
         description: "Identificador del equipo."
 
-      - name: team_abbreviation
-        data_type: varchar
-        description: "Abreviatura del nombre del equipo."
+#      - name: team_abbreviation
+#        data_type: varchar
+#        description: "Abreviatura del nombre del equipo."
 
-      - name: team_city
-        data_type: varchar
-        description: "Ciudad del equipo."
+#      - name: team_city
+#        data_type: varchar
+#        description: "Ciudad del equipo."
 
       - name: player_id
         data_type: number
         description: "Identificador único del jugador."
 
-      - name: player_name
-        data_type: varchar
-        description: "Nombre del jugador."
+#      - name: player_name
+#        data_type: varchar
+#        description: "Nombre del jugador."
 
-      - name: nickname
-        data_type: varchar
-        description: "Apodo del jugador."
+#      - name: nickname
+#        data_type: varchar
+#        description: "Apodo del jugador."
 
       - name: start_position
         data_type: varchar
@@ -199,20 +199,20 @@ models:
         data_type: number
         description: "Número de rebotes del equipo visitante."
 
-      - name: home_team_wins
+      - name: win_id
         data_type: number
         description: "Indicador de si el equipo local ganó el partido."
 
   - name: dim_ingesta_dim_win
     description: "Dimensión que indica el resultado del partido."
     columns:
-      - name: home_team_wins
+      - name: win_id
         data_type: number
         description: "Indicador de si el equipo local ganó el partido."
 
       - name: who_wins
         data_type: varchar
-        description: "Nombre del equipo ganador."
+        description: "Descripción de id."
 
   - name: dim_ingesta__players
     description: "Dimensión que contiene información básica de los jugadores."
@@ -291,3 +291,43 @@ models:
       - name: dleagueaffiliation
         data_type: varchar
         description: "Afiliación de la liga de desarrollo del equipo."
+
+
+  - name: dim_date
+    description: "Tabla dimensional que contiene información detallada sobre fechas desde el 2000-01-01 hasta el 2025-12-31."
+    columns:
+      - name: date
+        data_type: date
+        description: "La fecha específica en formato AAAA-MM-DD."
+
+      - name: year
+        data_type: number
+        description: "El componente de año de la fecha, representado como un número de cuatro dígitos."
+
+      - name: month
+        data_type: number
+        description: "El componente de mes de la fecha, representado como un número del 1 (enero) al 12 (diciembre)."
+
+      - name: day
+        data_type: number
+        description: "El componente de día de la fecha, representado como un número del 1 al 31, dependiendo del mes."
+
+      - name: day_of_week
+        data_type: number
+        description: "El día de la semana de la fecha, representado como un número del 1 (lunes) al 7 (domingo)."
+
+      - name: week
+        data_type: number
+        description: "El componente de semana del año, representado como un número del 1 al 53, según el sistema de fecha ISO."
+
+      - name: day_of_year
+        data_type: number
+        description: "El día del año de la fecha, representado como un número del 1 al 366, teniendo en cuenta los años bisiestos."
+
+      - name: quarter
+        data_type: number
+        description: "El trimestre del año en el que cae la fecha, representado como un número del 1 al 4."
+
+      - name: weekend_or_weekday
+        data_type: varchar
+        description: "Indica si la fecha cae en un fin de semana ('Fin de semana') o un día laborable ('Día laborable')."
