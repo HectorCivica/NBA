@@ -179,49 +179,6 @@ sources:
             data_type: number
             description: "Temporada en la que juega el jugador."
 
-      - name: ranking
-        description: "Tabla que contiene información sobre el ranking de equipos."
-        columns:
-          - name: team_id
-            data_type: number
-            description: "Identificador del equipo."
-          - name: league_id
-            data_type: number
-            description: "Identificador de la liga."
-          - name: season_id
-            data_type: number
-            description: "Identificador de la temporada."
-          - name: standingsdate
-            data_type: date
-            description: "Fecha del ranking."
-          - name: conference
-            data_type: varchar
-            description: "Conferencia a la que pertenece el equipo."
-          - name: team
-            data_type: varchar
-            description: "Nombre del equipo."
-          - name: g
-            data_type: number
-            description: "Número de juegos jugados."
-          - name: w
-            data_type: number
-            description: "Número de juegos ganados."
-          - name: l
-            data_type: number
-            description: "Número de juegos perdidos."
-          - name: w_pct
-            data_type: number
-            description: "Porcentaje de juegos ganados."
-          - name: home_record
-            data_type: varchar
-            description: "Récord de juegos en casa."
-          - name: road_record
-            data_type: varchar
-            description: "Récord de juegos fuera de casa."
-          - name: returntoplay
-            data_type: varchar
-            description: "Información sobre el regreso al juego."
-
       - name: teams
         description: "Tabla que contiene información sobre los equipos."
         columns:

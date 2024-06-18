@@ -1,333 +1,340 @@
 version: 2
 
 models:
-  - name: fct_ingesta__games_details_season
-    description: "Modelo que contiene detalles del desempeño de jugadores en los juegos de una temporada específica de la NBA."
-    columns:
-      - name: game_date_est
-        data_type: date
-        description: "Fecha del partido en hora estándar del este."
-
-      - name: season
-        data_type: number
-        description: "Temporada en la que se juega el partido."
-
-      - name: game_id
-        data_type: number
-        description: "Identificador único del partido."
-
-      - name: team_id
-        data_type: number
-        description: "Identificador del equipo."
-
-#      - name: team_abbreviation
-#        data_type: varchar
-#        description: "Abreviatura del nombre del equipo."
-
-#      - name: team_city
-#        data_type: varchar
-#        description: "Ciudad del equipo."
-
-      - name: player_id
-        data_type: number
-        description: "Identificador único del jugador."
-
-#      - name: player_name
-#        data_type: varchar
-#        description: "Nombre del jugador."
-
-#      - name: nickname
-#        data_type: varchar
-#        description: "Apodo del jugador."
-
-      - name: start_position
-        data_type: varchar
-        description: "Posición inicial del jugador."
-
-      - name: comment
-        data_type: varchar
-        description: "Comentarios adicionales sobre el desempeño del jugador."
-
-      - name: min
-        data_type: varchar
-        description: "Minutos jugados por el jugador."
-
-      - name: fgm
-        data_type: number
-        description: "Tiros de campo encestados por el jugador."
-
-      - name: fga
-        data_type: number
-        description: "Tiros de campo intentados por el jugador."
-
-      - name: fg_pct
-        data_type: number
-        description: "Porcentaje de tiros de campo del jugador."
-
-      - name: fg3m
-        data_type: number
-        description: "Tiros de tres puntos encestados por el jugador."
-
-      - name: fg3a
-        data_type: number
-        description: "Tiros de tres puntos intentados por el jugador."
-
-      - name: fg3_pct
-        data_type: number
-        description: "Porcentaje de tiros de tres puntos del jugador."
-
-      - name: ftm
-        data_type: number
-        description: "Tiros libres encestados por el jugador."
-
-      - name: fta
-        data_type: number
-        description: "Tiros libres intentados por el jugador."
-
-      - name: ft_pct
-        data_type: number
-        description: "Porcentaje de tiros libres del jugador."
-
-      - name: oreb
-        data_type: number
-        description: "Rebotes ofensivos del jugador."
-
-      - name: dreb
-        data_type: number
-        description: "Rebotes defensivos del jugador."
-
-      - name: reb
-        data_type: number
-        description: "Total de rebotes del jugador."
-
-      - name: ast
-        data_type: number
-        description: "Número de asistencias del jugador."
-
-      - name: stl
-        data_type: number
-        description: "Número de robos de balón del jugador."
-
-      - name: blk
-        data_type: number
-        description: "Número de bloqueos del jugador."
-
-      - name: to_
-        data_type: number
-        description: "Número de pérdidas de balón del jugador."
-
-      - name: pf
-        data_type: number
-        description: "Número de faltas personales del jugador."
-
-      - name: pts
-        data_type: number
-        description: "Puntos anotados por el jugador."
-
-      - name: plus_minus
-        data_type: number
-        description: "Estadística de +/- del jugador."
-
   - name: fct_ingesta__games
-    description: "Modelo que contiene detalles de los juegos de la NBA."
+    description: "This model contains fact data for NBA games."
     columns:
       - name: game_date_est
         data_type: date
-        description: "Fecha del partido en hora estándar del este."
+        description: "The date the game was played in EST (Eastern Standard Time)."
 
       - name: game_id
         data_type: number
-        description: "Identificador único del partido."
+        description: "A unique identifier for each game."
 
       - name: home_team_id
         data_type: number
-        description: "Identificador del equipo local."
+        description: "The unique identifier for the home team."
 
       - name: visitor_team_id
         data_type: number
-        description: "Identificador del equipo visitante."
+        description: "The unique identifier for the visiting team."
+
+      - name: win_id
+        data_type: number
+        description: "The unique identifier for the winning team."
 
       - name: season
         data_type: number
-        description: "Temporada en la que se juega el partido."
+        description: "The season during which the game was played."
 
       - name: pts_home
         data_type: number
-        description: "Puntos anotados por el equipo local."
+        description: "The total points scored by the home team."
 
       - name: fg_pct_home
         data_type: number
-        description: "Porcentaje de tiros de campo del equipo local."
+        description: "The field goal percentage of the home team."
 
       - name: ft_pct_home
         data_type: number
-        description: "Porcentaje de tiros libres del equipo local."
+        description: "The free throw percentage of the home team."
 
       - name: fg3_pct_home
         data_type: number
-        description: "Porcentaje de triples del equipo local."
+        description: "The three-point field goal percentage of the home team."
 
       - name: ast_home
         data_type: number
-        description: "Número de asistencias del equipo local."
+        description: "The total number of assists by the home team."
 
       - name: reb_home
         data_type: number
-        description: "Número de rebotes del equipo local."
+        description: "The total number of rebounds by the home team."
 
       - name: pts_away
         data_type: number
-        description: "Puntos anotados por el equipo visitante."
+        description: "The total points scored by the away team."
 
       - name: fg_pct_away
         data_type: number
-        description: "Porcentaje de tiros de campo del equipo visitante."
+        description: "The field goal percentage of the away team."
 
       - name: ft_pct_away
         data_type: number
-        description: "Porcentaje de tiros libres del equipo visitante."
+        description: "The free throw percentage of the away team."
 
       - name: fg3_pct_away
         data_type: number
-        description: "Porcentaje de triples del equipo visitante."
+        description: "The three-point field goal percentage of the away team."
 
       - name: ast_away
         data_type: number
-        description: "Número de asistencias del equipo visitante."
+        description: "The total number of assists by the away team."
 
       - name: reb_away
         data_type: number
-        description: "Número de rebotes del equipo visitante."
+        description: "The total number of rebounds by the away team."
 
-      - name: win_id
-        data_type: number
-        description: "Indicador de si el equipo local ganó el partido."
+      - name: _fivetran_synced
+        data_type: timestamp_ntz
+        description: "Timestamp of the last sync with Fivetran."
 
-  - name: dim_ingesta_dim_win
-    description: "Dimensión que indica el resultado del partido."
+  - name: fct_ingesta__games_details_season
+    description: "This model contains detailed fact data for NBA game performances by season."
     columns:
-      - name: win_id
-        data_type: number
-        description: "Indicador de si el equipo local ganó el partido."
-
-      - name: who_wins
-        data_type: varchar
-        description: "Descripción de id."
-
-  - name: dim_ingesta__players
-    description: "Dimensión que contiene información básica de los jugadores."
-    columns:
-      - name: player_name
-        data_type: varchar
-        description: "Nombre del jugador."
-
-      - name: team_id
-        data_type: number
-        description: "Identificador del equipo al que pertenece el jugador."
-
-      - name: player_id
-        data_type: number
-        description: "Identificador único del jugador."
+      - name: game_date_est
+        data_type: date
+        description: "The date the game was played in EST (Eastern Standard Time)."
 
       - name: season
         data_type: number
-        description: "Temporada a la que pertenece la información del jugador."
+        description: "The season during which the game was played."
 
-  - name: dim_ingesta__teams
-    description: "Dimensión que contiene información básica de los equipos."
-    columns:
-      - name: league_id
+      - name: detail_id
+        data_type: varchar
+        description: "A unique identifier for each game detail record."
+
+      - name: game_id
         data_type: number
-        description: "Identificador de la liga a la que pertenece el equipo."
+        description: "The unique identifier for the game."
 
       - name: team_id
         data_type: number
-        description: "Identificador único del equipo."
+        description: "The unique identifier for the team."
 
-      - name: min_year
+      - name: player_id
         data_type: number
-        description: "Año mínimo en el que el equipo ha participado."
+        description: "The unique identifier for the player."
 
-      - name: max_year
+      - name: start_position
+        data_type: varchar
+        description: "The starting position of the player in the game."
+
+      - name: comment
+        data_type: varchar
+        description: "Any additional comments about the player's performance."
+
+      - name: mins
+        data_type: varchar
+        description: "The total minutes played by the player."
+
+      - name: fgm
         data_type: number
-        description: "Año máximo en el que el equipo ha participado."
+        description: "The total number of field goals made by the player."
 
-      - name: abbreviation
-        data_type: varchar
-        description: "Abreviatura del nombre del equipo."
-
-      - name: nickname
-        data_type: varchar
-        description: "Apodo del equipo."
-
-      - name: yearfounded
+      - name: fga
         data_type: number
-        description: "Año de fundación del equipo."
+        description: "The total number of field goals attempted by the player."
 
-      - name: city
-        data_type: varchar
-        description: "Ciudad del equipo."
-
-      - name: arena
-        data_type: varchar
-        description: "Nombre del estadio del equipo."
-
-      - name: arenacapacity
+      - name: fg_pct
         data_type: number
-        description: "Capacidad del estadio del equipo."
+        description: "The field goal percentage of the player."
 
-      - name: owner
-        data_type: varchar
-        description: "Propietario del equipo."
+      - name: fg3m
+        data_type: number
+        description: "The total number of three-point field goals made by the player."
 
-      - name: generalmanager
-        data_type: varchar
-        description: "Gerente general del equipo."
+      - name: fg3a
+        data_type: number
+        description: "The total number of three-point field goals attempted by the player."
 
-      - name: headcoach
-        data_type: varchar
-        description: "Entrenador principal del equipo."
+      - name: fg3_pct
+        data_type: number
+        description: "The three-point field goal percentage of the player."
 
-      - name: dleagueaffiliation
-        data_type: varchar
-        description: "Afiliación de la liga de desarrollo del equipo."
+      - name: ftm
+        data_type: number
+        description: "The total number of free throws made by the player."
+
+      - name: fta
+        data_type: number
+        description: "The total number of free throws attempted by the player."
+
+      - name: ft_pct
+        data_type: number
+        description: "The free throw percentage of the player."
+
+      - name: oreb
+        data_type: number
+        description: "The total number of offensive rebounds by the player."
+
+      - name: dreb
+        data_type: number
+        description: "The total number of defensive rebounds by the player."
+
+      - name: reb
+        data_type: number
+        description: "The total number of rebounds by the player."
+
+      - name: ast
+        data_type: number
+        description: "The total number of assists by the player."
+
+      - name: stl
+        data_type: number
+        description: "The total number of steals by the player."
+
+      - name: blk
+        data_type: number
+        description: "The total number of blocks by the player."
+
+      - name: to_
+        data_type: number
+        description: "The total number of turnovers by the player."
+
+      - name: pf
+        data_type: number
+        description: "The total number of personal fouls by the player."
+
+      - name: pts
+        data_type: number
+        description: "The total points scored by the player."
+
+      - name: plus_minus
+        data_type: number
+        description: "The plus/minus rating of the player."
+
+      - name: _fivetran_synced
+        data_type: timestamp_ntz
+        description: "Timestamp of the last sync with Fivetran."
 
 
   - name: dim_date
-    description: "Tabla dimensional que contiene información detallada sobre fechas desde el 2000-01-01 hasta el 2025-12-31."
+    description: "This model contains information about dates."
     columns:
       - name: date
         data_type: date
-        description: "La fecha específica en formato AAAA-MM-DD."
+        description: "The specific date."
 
       - name: year
         data_type: number
-        description: "El componente de año de la fecha, representado como un número de cuatro dígitos."
+        description: "The year of the date."
 
       - name: month
         data_type: number
-        description: "El componente de mes de la fecha, representado como un número del 1 (enero) al 12 (diciembre)."
+        description: "The month of the date."
 
       - name: day
         data_type: number
-        description: "El componente de día de la fecha, representado como un número del 1 al 31, dependiendo del mes."
+        description: "The day of the date."
 
       - name: day_of_week
         data_type: number
-        description: "El día de la semana de la fecha, representado como un número del 1 (lunes) al 7 (domingo)."
+        description: "The day of the week, where 1 represents Monday and 7 represents Sunday."
 
       - name: week
         data_type: number
-        description: "El componente de semana del año, representado como un número del 1 al 53, según el sistema de fecha ISO."
+        description: "The week number in the year."
 
       - name: day_of_year
         data_type: number
-        description: "El día del año de la fecha, representado como un número del 1 al 366, teniendo en cuenta los años bisiestos."
+        description: "The day number within the year."
 
       - name: quarter
         data_type: number
-        description: "El trimestre del año en el que cae la fecha, representado como un número del 1 al 4."
+        description: "The quarter of the year (1 to 4)."
 
       - name: weekend_or_weekday
         data_type: varchar
-        description: "Indica si la fecha cae en un fin de semana ('Fin de semana') o un día laborable ('Día laborable')."
+        description: "Indicates whether the date is a weekend or a weekday."
+
+  - name: dim_ingesta__dim_win
+    description: "This model contains information about the winning team."
+    columns:
+      - name: win_id
+        data_type: number
+        description: "A unique identifier for the win."
+
+      - name: desc_win
+        data_type: varchar
+        description: "A description of the win."
+
+  - name: dim_ingesta__start_position
+    description: "This model contains information about players' starting positions."
+    columns:
+      - name: id_start_position
+        data_type: varchar
+        description: "A unique identifier for the start position."
+
+      - name: start_position
+        data_type: varchar
+        description: "The starting position of the player."
+
+      - name: desc_start_position
+        data_type: varchar
+        description: "A description of the starting position."
+
+  - name: dim_ingesta__players
+    description: "This model contains information about the players."
+    columns:
+      - name: player_name
+        data_type: varchar
+        description: "The name of the player."
+
+      - name: team_id
+        data_type: number
+        description: "The unique identifier of the team the player belongs to."
+
+      - name: player_id
+        data_type: number
+        description: "The unique identifier of the player."
+
+      - name: season
+        data_type: number
+        description: "The season during which the player is active."
+
+  - name: dim_ingesta__teams
+    description: "This model contains information about the teams."
+    columns:
+      - name: team_id
+        data_type: number
+        description: "The unique identifier of the team."
+
+      - name: min_year
+        data_type: number
+        description: "The earliest year the team has data for."
+
+      - name: max_year
+        data_type: number
+        description: "The latest year the team has data for."
+
+      - name: abbreviation
+        data_type: varchar
+        description: "The abbreviation of the team name."
+
+      - name: nickname
+        data_type: varchar
+        description: "The nickname of the team."
+
+      - name: yearfounded
+        data_type: number
+        description: "The year the team was founded."
+
+      - name: city
+        data_type: varchar
+        description: "The city where the team is based."
+
+      - name: arena
+        data_type: varchar
+        description: "The name of the team's arena."
+
+      - name: arenacapacity
+        data_type: number
+        description: "The seating capacity of the team's arena."
+
+      - name: owner
+        data_type: varchar
+        description: "The owner of the team."
+
+      - name: generalmanager
+        data_type: varchar
+        description: "The general manager of the team."
+
+      - name: headcoach
+        data_type: varchar
+        description: "The head coach of the team."
+
+      - name: dleagueaffiliation
+        data_type: varchar
+        description: "The team's D-League (development league) affiliation."

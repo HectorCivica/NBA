@@ -6,6 +6,7 @@ source as (
 
 ),
 
+
 renamed as (
 
     select
@@ -49,12 +50,23 @@ renamed as (
 
     from source
 
-)
+),
+
+renamed_2 as (
+
+    SELECT *
+FROM (
+    SELECT 
+           COUNT(*) OVER (PARTITION BY detail_id) AS cnt,
+           *
+    FROM renamed
+) subquery
+WHERE cnt = 1)
 
 --select * from renamed
 
 
-select * from 
-(select distinct *, count(*) as cnt from renamed
-group by all) subquery
-where cnt=1
+select * from renamed_2
+--(select distinct *, count(*) as cnt from renamed
+--group by all) subquery
+--where cnt=1
