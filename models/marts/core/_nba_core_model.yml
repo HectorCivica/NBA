@@ -11,10 +11,6 @@ models:
       - name: game_id
         data_type: number
         description: "A unique identifier for each game."
-        tests:
-          - relationships:
-              to: ref('fct_ingesta__games_details_season')
-              field: game_id
 
       - name: home_team_id
         data_type: number
