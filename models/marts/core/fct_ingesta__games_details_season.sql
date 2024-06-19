@@ -11,7 +11,7 @@ cte_games_details_season_date as(
     from {{ ref('int_ingesta__games_details_season') }}
 )
 
-select  game_date_est,
+select   game_date_est,
         season,
         detail_id,
         game_id,
@@ -21,7 +21,7 @@ select  game_date_est,
         player_id,
         --player_name,
         --nickname,
-        start_position,
+        start_position as start_position_id, 
         comment,
         mins,
         fgm,
@@ -46,6 +46,6 @@ select  game_date_est,
         _fivetran_synced
  from cte_games_details_season_date
  
- {% if is_incremental() %}
+{% if is_incremental() %}
     WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }} )
 {% endif %}
