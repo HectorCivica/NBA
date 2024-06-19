@@ -1,3 +1,5 @@
+
+
 with 
 
 cte_int_games as (
@@ -36,3 +38,4 @@ select game_date_est,
  join cte_int_games_details B on
  A.game_id=B.game_id
 order by A.game_id
+

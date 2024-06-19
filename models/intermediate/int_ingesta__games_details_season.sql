@@ -1,6 +1,5 @@
 
 
-
 with cte_games_details as(
     select *
     from {{ ref('stg_ingesta__games_details') }}
@@ -21,7 +20,7 @@ select  game_date_est,
         player_id,
         player_name,
         nickname,
-        start_position,
+        A.start_position,
         case
             when comment is null then 'No comments'
             else comment
@@ -118,3 +117,6 @@ select  game_date_est,
  from cte_games_details A
  join cte_games_season B on A.game_id=B.game_id
  order by A.game_id
+
+
+

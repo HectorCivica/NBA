@@ -131,7 +131,7 @@ models:
         data_type: varchar
         description: "The nickname of the player."
 
-      - name: start_position
+      - name: start_position_id
         data_type: varchar
         description: "The starting position of the player in the game."
 
