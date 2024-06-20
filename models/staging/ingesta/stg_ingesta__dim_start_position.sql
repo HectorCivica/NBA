@@ -10,7 +10,7 @@ renamed as (
 
     select
         distinct(start_position) as start_position,
-        {{ dbt_utils.generate_surrogate_key(['start_position']) }} as id_start_position,
+        {{ dbt_utils.generate_surrogate_key(['start_position']) }} as start_position_id,
         case
         when start_position='F' then 'Forward'
         when start_position='G' then 'Guard'

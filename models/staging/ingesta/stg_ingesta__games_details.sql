@@ -23,7 +23,7 @@ renamed as (
         player_id,
         player_name,
         nickname,
-        start_position,
+        {{ dbt_utils.generate_surrogate_key(['start_position']) }} as start_position_id,
         comment,
         mins,
         round(fgm) as fgm,
@@ -58,7 +58,7 @@ renamed as (
 --group by all) subquery
 --where cnt=1
 
-select * from source
+select * from renamed
 
 {% if is_incremental() %}
     WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }} )

@@ -12,7 +12,7 @@ models:
         data_type: number
         description: "A unique identifier for each game."
         tests:
-          - unique
+          - unique 
 
       - name: game_status_text
         data_type: varchar
