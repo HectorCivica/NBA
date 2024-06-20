@@ -20,7 +20,7 @@ select  game_date_est,
         player_id,
         player_name,
         nickname,
-        A.start_position,
+        A.start_position_id,
         case
             when comment is null then 'No comments'
             else comment

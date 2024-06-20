@@ -20,7 +20,7 @@ renamed as (
         nickname,
         case
             when start_position is null then 'B'
-            else start_position 
+            else start_position
         end as start_position,
         case 
             when comment is null then 'No comment'
@@ -66,7 +66,38 @@ WHERE cnt = 1)
 --select * from renamed
 
 
-select * from renamed_2
---(select distinct *, count(*) as cnt from renamed
---group by all) subquery
---where cnt=1
+ 
+
+
+select DETAIL_ID,
+GAME_ID,
+TEAM_ID,
+TEAM_ABBREVIATION,
+TEAM_CITY,
+PLAYER_ID,
+PLAYER_NAME,
+NICKNAME,
+START_POSITION,
+COMMENT,
+MINS,
+FGM,
+FGA,
+FG_PCT,
+FG3M,
+FG3A,
+FG3_PCT,
+FTM,
+FTA,
+FT_PCT,
+OREB,
+DREB,
+REB,
+AST,
+STL,
+BLK,
+TO_,
+PF,
+PTS,
+PLUS_MINUS,
+_FIVETRAN_SYNCED
+from renamed_2
